@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+
+.body {
+	background-color: #f1f1f1;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 40px;
+	grid-template-areas: "aside main-info";
+	max-width: 1024px;
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 0 40px;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	width: fit-content;
+}
+
+.title {
+	font-family: "Khand", sans-serif;
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #464646;
+}
+
+.title::after {
+	content: "";
+	display: block;
+	border-bottom: 1px solid #464646;
+	margin-bottom: 10px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.aside {
+	background-color: #e0e1e5;
+	grid-area: aside;
+	padding: 40px;
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+	gap: 60px;
+	grid-template-areas:
+		"avatar"
+		"skills"
+		"english";
+}
+
+.avatar {
+	grid-area: avatar;
+	max-width: 200px;
+	max-height: 200px;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.avatar__picture {
+	width: 100%;
+	height: 100%;
+}
+
+.skills {
+	grid-area: skills;
+}
+
+.skills__list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.skills__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.skills__dots {
+	display: flex;
+	gap: 5px;
+}
+
+.skills__dots_light,
+.skills__dots_dark {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.skills__dots_light {
+	background-color: #b0b0b0;
+}
+
+.skills__dots_dark {
+	background-color: #464646;
+}
+
+.english {
+	grid-area: english;
+}
+
+.english a,
+.english a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+.english__text {
+	margin-bottom: 14px;
+}
+
+.english__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.english__level {
+	display: inline-block;
+	padding: 0 10px;
+	color: #ffffff;
+	background: #464646;
+}
+
+.main-info {
+	display: grid;
+	grid-area: main-info;
+	grid-template-areas:
+		"contacts"
+		"experience";
+	gap: 40px;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.contacts {
+	background-color: #464646;
+	grid-area: contacts;
+	padding: 40px 20px;
+	color: #ffffff;
+	height: fit-content;
+}
+
+.contacts__name {
+	font-family: "Khand", sans-serif;
+	font-size: 3rem;
+	letter-spacing: 0.4rem;
+	line-height: 3rem;
+	color: #ffffff;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.contacts__position {
+	font-family: "Khand", sans-serif;
+	font-size: 1.2rem;
+	letter-spacing: 0.4rem;
+	line-height: 1.5rem;
+	color: #ffffff60;
+	font-weight: 100;
+	text-align: center;
+}
+
+.contacts__line {
+	width: 200px;
+	height: 2px;
+	background-color: #ffffff;
+	margin: 30px auto;
+}
+
+.contacts__contact-data {
+	display: grid;
+	grid-template-areas:
+		"phone mail"
+		"telegram discord";
+	gap: 20px;
+	justify-content: center;
+}
+
+.contacts__contact-data a,
+.contacts__portfolio a {
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 1.3rem;
+	font-family: "Khand", sans-serif;
+	font-weight: 100;
+	letter-spacing: 0.1rem;
+	transition: color 0.3s ease-in-out;
+}
+
+.contacts__contact-data a:hover,
+.contacts__portfolio a:hover {
+	color: #ff9f1a;
+}
+
+.contacts__phone {
+	grid-area: phone;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.contacts__telegram {
+	grid-area: telegram;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.contacts__mail {
+	grid-area: mail;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.contacts__discord {
+	grid-area: discord;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.contacts__portfolio {
+	display: grid;
+	grid-template-areas: "github";
+	gap: 20px;
+	justify-content: center;
+}
+
+.contacts__github {
+	grid-area: github;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.experience {
+	grid-area: experience;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	padding: 40px;
+	width: 100%;
+}
+
+.experience p a,
+.experience p a:link,
+.experience p a:visited {
+	color: #464646;
+	font-weight: 400;
+	text-decoration: none;
+	border-bottom: 1px dashed #464646;
+	transition: color 0.2s ease-in-out;
+}
+
+.experience p a:hover {
+	color: #ff9f1a;
+	border-bottom: 1px dashed#ff9f1a;
+}
+
+.education p,
+.work p {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.education hr {
+	margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px dashed #b0b0b0;
+}
+
+.education__company a,
+li a {
+	text-decoration: none;
+	color: #464646;
+	transition: color 0.2s ease-in-out;
+}
+
+.education__company a:hover {
+	color: #ff9f1a;
+	border-bottom: 1px dashed#ff9f1a;
+}
+
+@media screen and (max-width: 1024px) {
+	.main {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"main-info"
+			"aside";
+	}
+
+	.aside {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "skills english";
+	}
+
+	.main-info {
+		grid-template-areas:
+			"contacts"
+			"experience";
+	}
+	.avatar {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.aside {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			"skills"
+			"english";
+	}
+
+	.contacts__contact-data {
+		grid-template-areas:
+			"phone"
+			"mail"
+			"telegram"
+			"discord";
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.contacts__github {
+		min-width: 218px;
+		justify-content: left;
+		align-items: center;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.main {
+		padding: 0 0;
+	}
+	.aside {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			"skills"
+			"english";
+	}
+
+	.contacts__contact-data {
+		grid-template-areas:
+			"phone"
+			"mail"
+			"telegram"
+			"discord";
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.contacts__github {
+		min-width: 218px;
+		justify-content: left;
+		align-items: center;
+	}
+}
