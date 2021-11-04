@@ -1,10 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
 
 .body {
 	background-color: #f1f1f1;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
 	font-size: 16px;
+}
+
+.lang-btn {
+	position: absolute;
+	font-family: "Alumni Sans", sans-serif;
+	font-weight: normal;
+	font-size: 1.5rem;
+	letter-spacing: 0.1rem;
+	color: #ffffff;
+	background-color: #ffffff;
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-left: none;
+}
+
+.lang-btn__en {
+	width: 40px;
+	background-color: #464646;
+	/* background-color: #ff9f1a40; */
+	text-align: center;
+}
+
+.lang-btn__ru {
+	width: 40px;
+	background-color: #464646;
+	/* background-color: #ff9f1a40; */
+	text-align: center;
+}
+
+.lang-btn__en.active {
+	background-color: #ff9f1a;
+}
+
+.lang-btn__ru.active {
+	background-color: #ff9f1a;
 }
 
 .main {
@@ -21,10 +56,27 @@
 	width: fit-content;
 }
 
+.main.en {
+	display: none;
+}
+
+.main.ru {
+	display: none;
+}
+
+.main.en.active {
+	display: grid;
+}
+
+.main.ru.active {
+	display: grid;
+}
+
 .title {
-	font-family: "Khand", sans-serif;
-	font-size: 1.8rem;
+	font-family: "Alumni Sans", sans-serif;
+	font-size: 2.2rem;
 	letter-spacing: 0.1rem;
+	line-height: 2.2rem;
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #464646;
@@ -46,10 +98,11 @@
 	grid-area: aside;
 	padding: 40px;
 	display: grid;
-	grid-template-rows: auto auto 1fr;
+	grid-template-rows: auto auto auto 1fr;
 	gap: 60px;
 	grid-template-areas:
 		"avatar"
+		"summary"
 		"skills"
 		"english";
 }
@@ -69,6 +122,10 @@
 	height: 100%;
 }
 
+.summary {
+	grid-area: summary;
+}
+
 .skills {
 	grid-area: skills;
 }
@@ -83,6 +140,20 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.skills__item:hover .skills__dots_dark {
+	background-color: #ff9f1a;
+	cursor: default;
+}
+
+.skills__item:hover .skills__lang {
+	color: #ffa01a;
+	cursor: default;
+}
+
+.skills__lang {
+	transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
 
 .skills__dots {
@@ -104,6 +175,7 @@
 
 .skills__dots_dark {
 	background-color: #464646;
+	transition: background-color 0.3s ease-in-out;
 }
 
 .english {
@@ -154,10 +226,10 @@
 }
 
 .contacts__name {
-	font-family: "Khand", sans-serif;
-	font-size: 3rem;
+	font-family: "Alumni Sans", sans-serif;
+	font-size: 3.5rem;
 	letter-spacing: 0.4rem;
-	line-height: 3rem;
+	line-height: 3.5rem;
 	color: #ffffff;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -165,10 +237,10 @@
 }
 
 .contacts__position {
-	font-family: "Khand", sans-serif;
-	font-size: 1.2rem;
+	font-family: "Alumni Sans", sans-serif;
+	font-size: 1.4rem;
 	letter-spacing: 0.4rem;
-	line-height: 1.5rem;
+	line-height: 1.4rem;
 	color: #ffffff60;
 	font-weight: 100;
 	text-align: center;
@@ -194,8 +266,8 @@
 .contacts__portfolio a {
 	text-decoration: none;
 	color: #ffffff;
-	font-size: 1.3rem;
-	font-family: "Khand", sans-serif;
+	font-size: 1.5rem;
+	font-family: "Alumni Sans", sans-serif;
 	font-weight: 100;
 	letter-spacing: 0.1rem;
 	transition: color 0.3s ease-in-out;
@@ -300,6 +372,17 @@ li a {
 }
 
 @media screen and (max-width: 1024px) {
+	.lang-btn {
+		display: flex;
+		background-color: #fff;
+		left: calc(50% - 40.5px);
+	}
+
+	.lang-btn__en {
+		margin-bottom: 0;
+		margin-right: 1px;
+	}
+
 	.main {
 		grid-template-columns: 1fr;
 		grid-template-areas:
@@ -309,8 +392,10 @@ li a {
 
 	.aside {
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr;
-		grid-template-areas: "skills english";
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			"summary summary"
+			"skills english";
 	}
 
 	.main-info {
@@ -321,13 +406,18 @@ li a {
 	.avatar {
 		display: none;
 	}
+
+	.contacts {
+		padding-top: 60px;
+	}
 }
 
 @media screen and (max-width: 680px) {
 	.aside {
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
+		grid-template-rows: auto auto auto;
 		grid-template-areas:
+			"summary"
 			"skills"
 			"english";
 	}
@@ -349,14 +439,16 @@ li a {
 	}
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 430px) {
 	.main {
-		padding: 0 0;
+		padding: 0;
 	}
+
 	.aside {
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
+		grid-template-rows: auto auto auto;
 		grid-template-areas:
+			"summary"
 			"skills"
 			"english";
 	}
