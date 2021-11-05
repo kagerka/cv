@@ -16,3 +16,14 @@ ruBtn.addEventListener('click', () => {
   ruSection.classList.add('active');
   enSection.classList.remove('active');
 });
+
+const avatarEn = document.querySelector('.avatar__container.en');
+const avatarRu = document.querySelector('.avatar__container.ru');
+
+const flipCard = () => {
+  avatarEn.classList.toggle('flipCard');
+  avatarRu.classList.toggle('flipCard');
+}
+
+avatarEn.addEventListener('click', flipCard);
+avatarRu.addEventListener('click', flipCard);
